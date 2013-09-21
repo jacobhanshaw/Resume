@@ -48,9 +48,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    navigationController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+   // navigationController = [[UINavigationController alloc] initWithRootViewController:];
     
-    self.window.rootViewController = navigationController;
+    self.window.rootViewController = [[HomeViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

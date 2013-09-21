@@ -81,11 +81,33 @@
 		8911E51917ED8EF90052D7E1 /* Reader-Print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E50617ED8EF90052D7E1 /* Reader-Print@2x.png */; };
 		8911E51A17ED8EF90052D7E1 /* Reader-Thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E50717ED8EF90052D7E1 /* Reader-Thumbs.png */; };
 		8911E51B17ED8EF90052D7E1 /* Reader-Thumbs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E50817ED8EF90052D7E1 /* Reader-Thumbs@2x.png */; };
-		8911E51E17ED92870052D7E1 /* ReaderDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E51D17ED92870052D7E1 /* ReaderDemoController.m */; };
 		8911E52217ED95980052D7E1 /* Reader.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8911E52117ED95980052D7E1 /* Reader.pdf */; };
-		8911E52417ED9A6A0052D7E1 /* Yale_Patt,_Sanjay_Patel-Introduction_to_Computing_Systems__From_bits_and_gates_to_C_and_beyond-McGraw-Hill_(2005).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8911E52317ED9A6A0052D7E1 /* Yale_Patt,_Sanjay_Patel-Introduction_to_Computing_Systems__From_bits_and_gates_to_C_and_beyond-McGraw-Hill_(2005).pdf */; };
 		8911E52A17ED9F910052D7E1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E52817ED9F910052D7E1 /* HomeViewController.m */; };
 		8911E52D17EDA8E40052D7E1 /* CustomRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E52C17EDA8E40052D7E1 /* CustomRefreshControl.m */; };
+		8911E53017EDEB9E0052D7E1 /* HomeMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E52E17EDEB9E0052D7E1 /* HomeMainToolbar.m */; };
+		8911E53317EDF4450052D7E1 /* Reader copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8911E53217EDF4450052D7E1 /* Reader copy.pdf */; };
+		8911E53517EDF9450052D7E1 /* x-mark-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E53417EDF9450052D7E1 /* x-mark-64.png */; };
+		8911E55617EE12600052D7E1 /* PointServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E55517EE12600052D7E1 /* PointServicesViewController.m */; };
+		8911E55817EE1C8A0052D7E1 /* AppKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8911E55717EE1C8A0052D7E1 /* AppKeys.plist */; };
+		8911E55B17EE1CE00052D7E1 /* PointIOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E55A17EE1CE00052D7E1 /* PointIOController.m */; };
+		8911E55F17EE29F50052D7E1 /* JSONConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E55E17EE29F50052D7E1 /* JSONConnection.m */; };
+		8911E57017EE2A030052D7E1 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E56317EE2A030052D7E1 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -w"; }; };
+		8911E57117EE2A030052D7E1 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E56517EE2A030052D7E1 /* NSObject+SBJSON.m */; };
+		8911E57217EE2A030052D7E1 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E56717EE2A030052D7E1 /* NSString+SBJSON.m */; };
+		8911E57317EE2A030052D7E1 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E56917EE2A030052D7E1 /* SBJSON.m */; };
+		8911E57417EE2A030052D7E1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E56B17EE2A030052D7E1 /* SBJsonBase.m */; };
+		8911E57517EE2A030052D7E1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E56D17EE2A030052D7E1 /* SBJsonParser.m */; };
+		8911E57617EE2A030052D7E1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E56F17EE2A030052D7E1 /* SBJsonWriter.m */; };
+		8911E57917EE2A2D0052D7E1 /* ServiceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E57817EE2A2D0052D7E1 /* ServiceResult.m */; };
+		8911E57B17EE32580052D7E1 /* AppContent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8911E57A17EE32580052D7E1 /* AppContent.plist */; };
+		8911E58417EE32950052D7E1 /* Samba.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E57C17EE32950052D7E1 /* Samba.png */; };
+		8911E58517EE32950052D7E1 /* FTP.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E57D17EE32950052D7E1 /* FTP.png */; };
+		8911E58617EE32950052D7E1 /* SFTP.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E57E17EE32950052D7E1 /* SFTP.png */; };
+		8911E58717EE32950052D7E1 /* Sharepoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E57F17EE32950052D7E1 /* Sharepoint.png */; };
+		8911E58817EE32950052D7E1 /* Box.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E58017EE32950052D7E1 /* Box.png */; };
+		8911E58917EE32950052D7E1 /* Amazon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E58117EE32950052D7E1 /* Amazon.png */; };
+		8911E58A17EE32950052D7E1 /* Dropbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E58217EE32950052D7E1 /* Dropbox.png */; };
+		8911E58B17EE32950052D7E1 /* Google.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E58317EE32950052D7E1 /* Google.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,14 +220,48 @@
 		8911E50617ED8EF90052D7E1 /* Reader-Print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Print@2x.png"; sourceTree = "<group>"; };
 		8911E50717ED8EF90052D7E1 /* Reader-Thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs.png"; sourceTree = "<group>"; };
 		8911E50817ED8EF90052D7E1 /* Reader-Thumbs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs@2x.png"; sourceTree = "<group>"; };
-		8911E51C17ED92870052D7E1 /* ReaderDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderDemoController.h; sourceTree = "<group>"; };
-		8911E51D17ED92870052D7E1 /* ReaderDemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderDemoController.m; sourceTree = "<group>"; };
 		8911E52117ED95980052D7E1 /* Reader.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Reader.pdf; sourceTree = "<group>"; };
-		8911E52317ED9A6A0052D7E1 /* Yale_Patt,_Sanjay_Patel-Introduction_to_Computing_Systems__From_bits_and_gates_to_C_and_beyond-McGraw-Hill_(2005).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Yale_Patt,_Sanjay_Patel-Introduction_to_Computing_Systems__From_bits_and_gates_to_C_and_beyond-McGraw-Hill_(2005).pdf"; sourceTree = "<group>"; };
 		8911E52817ED9F910052D7E1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		8911E52917ED9F910052D7E1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		8911E52B17EDA8E40052D7E1 /* CustomRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRefreshControl.h; sourceTree = "<group>"; };
 		8911E52C17EDA8E40052D7E1 /* CustomRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshControl.m; sourceTree = "<group>"; };
+		8911E52E17EDEB9E0052D7E1 /* HomeMainToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMainToolbar.m; sourceTree = "<group>"; };
+		8911E52F17EDEB9E0052D7E1 /* HomeMainToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMainToolbar.h; sourceTree = "<group>"; };
+		8911E53217EDF4450052D7E1 /* Reader copy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Reader copy.pdf"; sourceTree = "<group>"; };
+		8911E53417EDF9450052D7E1 /* x-mark-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-mark-64.png"; sourceTree = "<group>"; };
+		8911E55417EE12600052D7E1 /* PointServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointServicesViewController.h; sourceTree = "<group>"; };
+		8911E55517EE12600052D7E1 /* PointServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointServicesViewController.m; sourceTree = "<group>"; };
+		8911E55717EE1C8A0052D7E1 /* AppKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppKeys.plist; sourceTree = "<group>"; };
+		8911E55917EE1CE00052D7E1 /* PointIOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointIOController.h; sourceTree = "<group>"; };
+		8911E55A17EE1CE00052D7E1 /* PointIOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointIOController.m; sourceTree = "<group>"; };
+		8911E55D17EE29F50052D7E1 /* JSONConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONConnection.h; sourceTree = "<group>"; };
+		8911E55E17EE29F50052D7E1 /* JSONConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConnection.m; sourceTree = "<group>"; };
+		8911E56117EE2A030052D7E1 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		8911E56217EE2A030052D7E1 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		8911E56317EE2A030052D7E1 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		8911E56417EE2A030052D7E1 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		8911E56517EE2A030052D7E1 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		8911E56617EE2A030052D7E1 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		8911E56717EE2A030052D7E1 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		8911E56817EE2A030052D7E1 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		8911E56917EE2A030052D7E1 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		8911E56A17EE2A030052D7E1 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		8911E56B17EE2A030052D7E1 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		8911E56C17EE2A030052D7E1 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		8911E56D17EE2A030052D7E1 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		8911E56E17EE2A030052D7E1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		8911E56F17EE2A030052D7E1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		8911E57717EE2A2D0052D7E1 /* ServiceResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceResult.h; sourceTree = "<group>"; };
+		8911E57817EE2A2D0052D7E1 /* ServiceResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceResult.m; sourceTree = "<group>"; };
+		8911E57A17EE32580052D7E1 /* AppContent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppContent.plist; sourceTree = "<group>"; };
+		8911E57C17EE32950052D7E1 /* Samba.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Samba.png; sourceTree = "<group>"; };
+		8911E57D17EE32950052D7E1 /* FTP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTP.png; sourceTree = "<group>"; };
+		8911E57E17EE32950052D7E1 /* SFTP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SFTP.png; sourceTree = "<group>"; };
+		8911E57F17EE32950052D7E1 /* Sharepoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sharepoint.png; sourceTree = "<group>"; };
+		8911E58017EE32950052D7E1 /* Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Box.png; sourceTree = "<group>"; };
+		8911E58117EE32950052D7E1 /* Amazon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Amazon.png; sourceTree = "<group>"; };
+		8911E58217EE32950052D7E1 /* Dropbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropbox.png; sourceTree = "<group>"; };
+		8911E58317EE32950052D7E1 /* Google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Google.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,10 +360,11 @@
 				8911E4A617ED79AD0052D7E1 /* LoginViewController.xib */,
 				8911E52917ED9F910052D7E1 /* HomeViewController.h */,
 				8911E52817ED9F910052D7E1 /* HomeViewController.m */,
-				8911E51C17ED92870052D7E1 /* ReaderDemoController.h */,
-				8911E51D17ED92870052D7E1 /* ReaderDemoController.m */,
-				8911E52B17EDA8E40052D7E1 /* CustomRefreshControl.h */,
-				8911E52C17EDA8E40052D7E1 /* CustomRefreshControl.m */,
+				8911E55417EE12600052D7E1 /* PointServicesViewController.h */,
+				8911E55517EE12600052D7E1 /* PointServicesViewController.m */,
+				8911E55917EE1CE00052D7E1 /* PointIOController.h */,
+				8911E55A17EE1CE00052D7E1 /* PointIOController.m */,
+				8911E53117EDF0090052D7E1 /* Views */,
 				8911E46D17ED74CE0052D7E1 /* Images.xcassets */,
 				8911E46A17ED74CE0052D7E1 /* Resume.xcdatamodeld */,
 				8911E45F17ED74CE0052D7E1 /* Supporting Files */,
@@ -320,6 +377,8 @@
 			children = (
 				8911E52017ED95890052D7E1 /* PDFs */,
 				8911E51F17ED957D0052D7E1 /* Images */,
+				8911E57A17EE32580052D7E1 /* AppContent.plist */,
+				8911E55717EE1C8A0052D7E1 /* AppKeys.plist */,
 				8911E46017ED74CE0052D7E1 /* Resume-Info.plist */,
 				8911E46117ED74CE0052D7E1 /* InfoPlist.strings */,
 				8911E46417ED74CE0052D7E1 /* main.m */,
@@ -349,6 +408,11 @@
 		8911E4B617ED8EC50052D7E1 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				8911E56017EE29F80052D7E1 /* JSON */,
+				8911E55D17EE29F50052D7E1 /* JSONConnection.h */,
+				8911E55E17EE29F50052D7E1 /* JSONConnection.m */,
+				8911E57717EE2A2D0052D7E1 /* ServiceResult.h */,
+				8911E57817EE2A2D0052D7E1 /* ServiceResult.m */,
 				8911E4B717ED8ECF0052D7E1 /* Reader */,
 			);
 			name = "External Libraries";
@@ -439,6 +503,15 @@
 		8911E51F17ED957D0052D7E1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8911E57C17EE32950052D7E1 /* Samba.png */,
+				8911E57D17EE32950052D7E1 /* FTP.png */,
+				8911E57E17EE32950052D7E1 /* SFTP.png */,
+				8911E57F17EE32950052D7E1 /* Sharepoint.png */,
+				8911E58017EE32950052D7E1 /* Box.png */,
+				8911E58117EE32950052D7E1 /* Amazon.png */,
+				8911E58217EE32950052D7E1 /* Dropbox.png */,
+				8911E58317EE32950052D7E1 /* Google.png */,
+				8911E53417EDF9450052D7E1 /* x-mark-64.png */,
 				8911E4A917ED79DE0052D7E1 /* login-button-small-pressed.png */,
 				8911E4AA17ED79DE0052D7E1 /* login-button-small-pressed@2x.png */,
 				8911E4AB17ED79DE0052D7E1 /* login-button-small.png */,
@@ -450,10 +523,43 @@
 		8911E52017ED95890052D7E1 /* PDFs */ = {
 			isa = PBXGroup;
 			children = (
-				8911E52317ED9A6A0052D7E1 /* Yale_Patt,_Sanjay_Patel-Introduction_to_Computing_Systems__From_bits_and_gates_to_C_and_beyond-McGraw-Hill_(2005).pdf */,
+				8911E53217EDF4450052D7E1 /* Reader copy.pdf */,
 				8911E52117ED95980052D7E1 /* Reader.pdf */,
 			);
 			name = PDFs;
+			sourceTree = "<group>";
+		};
+		8911E53117EDF0090052D7E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8911E52F17EDEB9E0052D7E1 /* HomeMainToolbar.h */,
+				8911E52E17EDEB9E0052D7E1 /* HomeMainToolbar.m */,
+				8911E52B17EDA8E40052D7E1 /* CustomRefreshControl.h */,
+				8911E52C17EDA8E40052D7E1 /* CustomRefreshControl.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8911E56017EE29F80052D7E1 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				8911E56117EE2A030052D7E1 /* JSON.h */,
+				8911E56217EE2A030052D7E1 /* JSONKit.h */,
+				8911E56317EE2A030052D7E1 /* JSONKit.m */,
+				8911E56417EE2A030052D7E1 /* NSObject+SBJSON.h */,
+				8911E56517EE2A030052D7E1 /* NSObject+SBJSON.m */,
+				8911E56617EE2A030052D7E1 /* NSString+SBJSON.h */,
+				8911E56717EE2A030052D7E1 /* NSString+SBJSON.m */,
+				8911E56817EE2A030052D7E1 /* SBJSON.h */,
+				8911E56917EE2A030052D7E1 /* SBJSON.m */,
+				8911E56A17EE2A030052D7E1 /* SBJsonBase.h */,
+				8911E56B17EE2A030052D7E1 /* SBJsonBase.m */,
+				8911E56C17EE2A030052D7E1 /* SBJsonParser.h */,
+				8911E56D17EE2A030052D7E1 /* SBJsonParser.m */,
+				8911E56E17EE2A030052D7E1 /* SBJsonWriter.h */,
+				8911E56F17EE2A030052D7E1 /* SBJsonWriter.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,6 +609,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jacob Hanshaw";
 				TargetAttributes = {
+					8911E45217ED74CE0052D7E1 = {
+						DevelopmentTeam = QYWVT766UU;
+					};
 					8911E47217ED74CE0052D7E1 = {
 						TestTargetID = 8911E45217ED74CE0052D7E1;
 					};
@@ -531,32 +640,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8911E58A17EE32950052D7E1 /* Dropbox.png in Resources */,
+				8911E58417EE32950052D7E1 /* Samba.png in Resources */,
 				8911E4AE17ED79DE0052D7E1 /* login-button-small-pressed@2x.png in Resources */,
+				8911E58917EE32950052D7E1 /* Amazon.png in Resources */,
 				8911E4AF17ED79DE0052D7E1 /* login-button-small.png in Resources */,
 				8911E4AD17ED79DE0052D7E1 /* login-button-small-pressed.png in Resources */,
+				8911E58617EE32950052D7E1 /* SFTP.png in Resources */,
 				8911E51517ED8EF90052D7E1 /* Reader-Mark-N@2x.png in Resources */,
 				8911E51717ED8EF90052D7E1 /* Reader-Mark-Y@2x.png in Resources */,
 				8911E51017ED8EF90052D7E1 /* Reader-Button-N.png in Resources */,
-				8911E52417ED9A6A0052D7E1 /* Yale_Patt,_Sanjay_Patel-Introduction_to_Computing_Systems__From_bits_and_gates_to_C_and_beyond-McGraw-Hill_(2005).pdf in Resources */,
+				8911E57B17EE32580052D7E1 /* AppContent.plist in Resources */,
 				8911E50C17ED8EF90052D7E1 /* AppIcon-144.png in Resources */,
 				8911E50F17ED8EF90052D7E1 /* Reader-Button-H@2x.png in Resources */,
 				8911E51317ED8EF90052D7E1 /* Reader-Email@2x.png in Resources */,
 				8911E50B17ED8EF90052D7E1 /* AppIcon-114.png in Resources */,
 				8911E50D17ED8EF90052D7E1 /* Default-568h@2x.png in Resources */,
 				8911E46317ED74CE0052D7E1 /* InfoPlist.strings in Resources */,
+				8911E58817EE32950052D7E1 /* Box.png in Resources */,
 				8911E46E17ED74CE0052D7E1 /* Images.xcassets in Resources */,
+				8911E58717EE32950052D7E1 /* Sharepoint.png in Resources */,
 				8911E51917ED8EF90052D7E1 /* Reader-Print@2x.png in Resources */,
 				8911E51B17ED8EF90052D7E1 /* Reader-Thumbs@2x.png in Resources */,
 				8911E51417ED8EF90052D7E1 /* Reader-Mark-N.png in Resources */,
 				8911E51117ED8EF90052D7E1 /* Reader-Button-N@2x.png in Resources */,
 				8911E51A17ED8EF90052D7E1 /* Reader-Thumbs.png in Resources */,
+				8911E55817EE1C8A0052D7E1 /* AppKeys.plist in Resources */,
+				8911E58B17EE32950052D7E1 /* Google.png in Resources */,
+				8911E53517EDF9450052D7E1 /* x-mark-64.png in Resources */,
 				8911E51617ED8EF90052D7E1 /* Reader-Mark-Y.png in Resources */,
 				8911E51217ED8EF90052D7E1 /* Reader-Email.png in Resources */,
+				8911E53317EDF4450052D7E1 /* Reader copy.pdf in Resources */,
 				8911E50917ED8EF90052D7E1 /* AppIcon-057.png in Resources */,
 				8911E50A17ED8EF90052D7E1 /* AppIcon-072.png in Resources */,
 				8911E52217ED95980052D7E1 /* Reader.pdf in Resources */,
 				8911E51817ED8EF90052D7E1 /* Reader-Print.png in Resources */,
 				8911E4B017ED79DE0052D7E1 /* login-button-small@2x.png in Resources */,
+				8911E58517EE32950052D7E1 /* FTP.png in Resources */,
 				8911E4A817ED79AD0052D7E1 /* LoginViewController.xib in Resources */,
 				8911E50E17ED8EF90052D7E1 /* Reader-Button-H.png in Resources */,
 			);
@@ -577,12 +697,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8911E55B17EE1CE00052D7E1 /* PointIOController.m in Sources */,
 				8911E52D17EDA8E40052D7E1 /* CustomRefreshControl.m in Sources */,
 				8911E4EA17ED8EE30052D7E1 /* ReaderThumbCache.m in Sources */,
 				8911E4E717ED8EE30052D7E1 /* ReaderDocumentOutline.m in Sources */,
 				8911E4F417ED8EE30052D7E1 /* UIXToolbarView.m in Sources */,
-				8911E51E17ED92870052D7E1 /* ReaderDemoController.m in Sources */,
 				8911E4E217ED8EE30052D7E1 /* ReaderConstants.m in Sources */,
+				8911E57017EE2A030052D7E1 /* JSONKit.m in Sources */,
+				8911E57617EE2A030052D7E1 /* SBJsonWriter.m in Sources */,
 				8911E4E317ED8EE30052D7E1 /* ReaderContentPage.m in Sources */,
 				8911E4E817ED8EE30052D7E1 /* ReaderMainPagebar.m in Sources */,
 				8911E46C17ED74CE0052D7E1 /* Resume.xcdatamodeld in Sources */,
@@ -590,18 +712,27 @@
 				8911E4E417ED8EE30052D7E1 /* ReaderContentTile.m in Sources */,
 				8911E4EC17ED8EE30052D7E1 /* ReaderThumbQueue.m in Sources */,
 				8911E46917ED74CE0052D7E1 /* AppDelegate.m in Sources */,
+				8911E55F17EE29F50052D7E1 /* JSONConnection.m in Sources */,
 				8911E46517ED74CE0052D7E1 /* main.m in Sources */,
+				8911E57117EE2A030052D7E1 /* NSObject+SBJSON.m in Sources */,
 				8911E4F317ED8EE30052D7E1 /* ThumbsViewController.m in Sources */,
+				8911E57917EE2A2D0052D7E1 /* ServiceResult.m in Sources */,
 				8911E4F217ED8EE30052D7E1 /* ThumbsMainToolbar.m in Sources */,
 				8911E4EE17ED8EE30052D7E1 /* ReaderThumbRequest.m in Sources */,
 				8911E4EB17ED8EE30052D7E1 /* ReaderThumbFetch.m in Sources */,
 				8911E4F117ED8EE30052D7E1 /* ReaderViewController.m in Sources */,
 				8911E4E617ED8EE30052D7E1 /* ReaderDocument.m in Sources */,
 				8911E4F017ED8EE30052D7E1 /* ReaderThumbView.m in Sources */,
+				8911E57317EE2A030052D7E1 /* SBJSON.m in Sources */,
+				8911E57417EE2A030052D7E1 /* SBJsonBase.m in Sources */,
+				8911E53017EDEB9E0052D7E1 /* HomeMainToolbar.m in Sources */,
 				8911E4ED17ED8EE30052D7E1 /* ReaderThumbRender.m in Sources */,
 				8911E4A117ED78B20052D7E1 /* AppModel.m in Sources */,
 				8911E4A717ED79AD0052D7E1 /* LoginViewController.m in Sources */,
 				8911E52A17ED9F910052D7E1 /* HomeViewController.m in Sources */,
+				8911E57517EE2A030052D7E1 /* SBJsonParser.m in Sources */,
+				8911E55617EE12600052D7E1 /* PointServicesViewController.m in Sources */,
+				8911E57217EE2A030052D7E1 /* NSString+SBJSON.m in Sources */,
 				8911E4E117ED8EE30052D7E1 /* CGPDFDocument.m in Sources */,
 				8911E4EF17ED8EE30052D7E1 /* ReaderThumbsView.m in Sources */,
 				8911E4E917ED8EE30052D7E1 /* ReaderMainToolbar.m in Sources */,
@@ -721,6 +852,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/JacobHanshaw/Desktop/Personal\\ Projects/Resume/Resume",
@@ -739,6 +871,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/JacobHanshaw/Desktop/Personal\\ Projects/Resume/Resume",

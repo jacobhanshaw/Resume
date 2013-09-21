@@ -33,17 +33,21 @@
 #import "CustomRefreshControl.h"
 #import "LoginViewController.h"
 #import "ReaderViewController.h"
+#import "PointServicesViewController.h"
+#import "HomeMainToolbar.h"
 
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface HomeViewController () <ReaderViewControllerDelegate, ReaderThumbsViewDelegate>
+@interface HomeViewController () <ReaderViewControllerDelegate, ReaderThumbsViewDelegate, HomeMainToolbarDelegate>
 
 @end
 
 @implementation HomeViewController
 {
-    BOOL ignoreInitialContentOffsetScroll;
+    BOOL editing;
+    
+    int ignoreInitialContentOffsetScroll;
 	NSMutableArray *documents;
     
     CustomRefreshControl *refreshControl;
@@ -52,11 +56,16 @@
 	CGPoint thumbsOffset;
 	CGPoint markedOffset;
     
+    HomeMainToolbar *mainToolbar;
     UILabel *noPDFsLabel;
     UIActivityIndicatorView *activityIndicator;
+    
+    ReaderDocument *documentToDelete;
 }
 
 #pragma mark Constants
+
+#define TOOLBAR_HEIGHT 44.0f
 
 #define PAGE_THUMB_SMALL 160
 #define PAGE_THUMB_LARGE 256
@@ -71,7 +80,7 @@
     {
         documents = [[NSMutableArray alloc] init];
         activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        ignoreInitialContentOffsetScroll = YES;
+        ignoreInitialContentOffsetScroll = 0;
         thumbs = self; // Return an initialized ThumbsViewController object
     }
     
@@ -82,14 +91,20 @@
 {
 	[super viewDidLoad];
     
-	activityIndicator.center = self.view.center;
-    [self.view addSubview: activityIndicator];
-    
 	self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     
 	CGRect viewRect = self.view.bounds; // View controller's view bounds
     
 	CGRect thumbsRect = viewRect; UIEdgeInsets insets = UIEdgeInsetsZero;
+    
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+	{
+		thumbsRect.origin.y += TOOLBAR_HEIGHT; thumbsRect.size.height -= TOOLBAR_HEIGHT;
+	}
+	else // Set UIScrollView insets for non-UIUserInterfaceIdiomPad case
+	{
+		insets.top = TOOLBAR_HEIGHT;
+	}
     
 	theThumbsView = [[ReaderThumbsView alloc] initWithFrame:thumbsRect]; // Rest
     
@@ -97,7 +112,13 @@
     
 	theThumbsView.delegate = self;
     
-	[self.view insertSubview:theThumbsView belowSubview:activityIndicator];
+	[self.view addSubview:theThumbsView];
+    
+    CGRect toolbarRect = viewRect; toolbarRect.size.height = TOOLBAR_HEIGHT;
+    
+	mainToolbar = [[HomeMainToolbar alloc] initWithFrame:toolbarRect andTitle:@"Resumes"]; // At top
+	mainToolbar.delegate = self;
+    [self.view addSubview:mainToolbar];
     
 	BOOL large = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad);
     
@@ -111,28 +132,36 @@
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [theThumbsView addSubview:refreshControl];
     
-    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out" style:UIBarButtonItemStylePlain target:self action:@selector(logOut:)];
-    self.navigationItem.leftBarButtonItem = logoutButton;
+    activityIndicator.center = self.view.center;
+    [self.view addSubview: activityIndicator];
 }
 
-- (void)logOut:(UIBarButtonItem *) sender
+- (void)tappedInToolbar:(HomeMainToolbar *)toolbar logoutButton:(UIButton *)button
 {
     [documents removeAllObjects];
     [PFUser logOut];
-    [self presentViewController:[[LoginViewController alloc] init] animated:YES completion:nil];
+    
+    LoginViewController * loginVC = [[LoginViewController alloc] init];
+    loginVC.logInType = AppLogIn;
+    [self presentViewController: loginVC animated:YES completion:nil];
+}
+
+- (void)tappedInToolbar:(HomeMainToolbar *)toolbar addButton:(UIButton *)button
+{
+    [self presentViewController: [[PointServicesViewController alloc] init] animated:YES completion:nil];
+}
+
+- (void)tappedInToolbar:(HomeMainToolbar *)toolbar editButton:(UIButton *)button
+{
+    editing = !editing;
+    refreshControl.hidden = YES;
+    ignoreInitialContentOffsetScroll = 0;
+    [theThumbsView reloadThumbsCenterOnIndex:([documents count] - 1)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-    
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    
-    if (![PFUser currentUser])
-    {
-        [self presentViewController:[[LoginViewController alloc] init] animated:NO completion:nil];
-        return;
-    }
     
     if([documents count] == 0)
         [self refresh: nil];
@@ -160,13 +189,21 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
+    
+#warning isAuthenticated BROKEN
+    if ([[PFUser currentUser].username length] == 0)
+    {
+        LoginViewController * loginVC = [[LoginViewController alloc] init];
+        loginVC.logInType = AppLogIn;
+        [self presentViewController: loginVC animated:NO completion:nil];
+        return;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -218,6 +255,9 @@
 
 - (void) refresh:(UIRefreshControl *)aRefreshControl
 {
+    refreshControl.hidden = YES;
+    ignoreInitialContentOffsetScroll = 0;
+    
     [self clearPDFS];
     
     if(!aRefreshControl)
@@ -242,10 +282,14 @@
     NSString *phrase = nil; // Document password (for unlocking most encrypted PDF files)
     
 	NSArray *pdfs = [[NSBundle mainBundle] pathsForResourcesOfType:@"pdf" inDirectory:nil];
+  //  NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
     
     for(NSString *filePath in pdfs)
     {
+        
         [documents addObject:[ReaderDocument withDocumentFilePath:filePath password:phrase]];
+        //NSData *myFile = [NSData dataWithContentsOfFile:filePath];
+        //[myFile writeToFile: [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"bonus%@"]] atomically:YES];
     }
     
     [theThumbsView reloadThumbsCenterOnIndex:([documents count] - 1)];
@@ -255,10 +299,10 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if(!ignoreInitialContentOffsetScroll)
+    if(ignoreInitialContentOffsetScroll == 2)
         refreshControl.hidden = NO;
     else
-        ignoreInitialContentOffsetScroll = NO;
+        ++ignoreInitialContentOffsetScroll;
 }
 
 - (NSUInteger)numberOfThumbsInThumbsView:(ReaderThumbsView *)thumbsView
@@ -278,6 +322,7 @@
 	ReaderDocument *document = [documents objectAtIndex:index];
     
 	[thumbCell showText:[document.fileName stringByDeletingPathExtension]]; // Page number place holder
+    [thumbCell showEditImage:editing];
     
 	NSURL *fileURL = document.fileURL; NSString *guid = document.guid; NSString *phrase = document.password; // Document info
     
@@ -295,17 +340,37 @@
 
 - (void)thumbsView:(ReaderThumbsView *)thumbsView didSelectThumbWithIndex:(NSInteger)index
 {
-    ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:[documents objectAtIndex:index]];
-    
-    readerViewController.delegate = self;
-    [self.navigationController pushViewController:readerViewController animated:YES];
+    if(editing)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Are you sure you would like to delete this document?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [alert show];
+        documentToDelete = [documents objectAtIndex:index];
+    }
+    else
+    {
+        ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:[documents objectAtIndex:index]];
+        readerViewController.delegate = self;
+        [self presentViewController:readerViewController animated:YES completion:nil];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([alertView.title isEqualToString:@"Are you sure?"] && buttonIndex != 0)
+    {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error;
+        if ([fileManager removeItemAtPath:documentToDelete.fullFilePath error:&error] != YES)
+            NSLog(@"%@", [error localizedDescription]);
+        [self refresh:nil];
+    }
 }
 
 #pragma mark ReaderViewControllerDelegate methods
 
 - (void)dismissReaderViewController:(ReaderViewController *)viewController
 {
-	[self.navigationController popViewControllerAnimated:YES];
+	[viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)thumbsView:(ReaderThumbsView *)thumbsView didPressThumbWithIndex:(NSInteger)index
@@ -329,7 +394,7 @@
     
 	UILabel *textLabel;
     
-	UIImageView *bookMark;
+	UIImageView *deleteImage;
     
 	CGSize maximumSize;
     
@@ -344,9 +409,9 @@
 
 - (CGRect)markRectInImageView
 {
-	CGRect iconRect = bookMark.frame; iconRect.origin.y = (-2.0f);
+	CGRect iconRect = deleteImage.frame; iconRect.origin.y = (0.0f);
     
-	iconRect.origin.x = (imageView.bounds.size.width - bookMark.image.size.width - 8.0f);
+	iconRect.origin.x = (imageView.bounds.size.width - deleteImage.frame.size.width);
     
 	return iconRect; // Frame position rect inside of image view
 }
@@ -413,18 +478,18 @@
         
 		[imageView addSubview:tintView];
         
-		UIImage *image = [UIImage imageNamed:@"Reader-Mark-Y"];
+		UIImage *image = [UIImage imageNamed:@"x-mark-64.png"];
         
-		bookMark = [[UIImageView alloc] initWithImage:image];
+		deleteImage = [[UIImageView alloc] initWithImage:image];
+        deleteImage.frame = CGRectMake(0, 0, 20, 20);
+		deleteImage.hidden = YES;
+		deleteImage.autoresizesSubviews = NO;
+		deleteImage.userInteractionEnabled = NO;
+		deleteImage.contentMode = UIViewContentModeScaleAspectFit;
+		deleteImage.autoresizingMask = UIViewAutoresizingNone;
+		deleteImage.frame = [self markRectInImageView];
         
-		bookMark.hidden = YES;
-		bookMark.autoresizesSubviews = NO;
-		bookMark.userInteractionEnabled = NO;
-		bookMark.contentMode = UIViewContentModeCenter;
-		bookMark.autoresizingMask = UIViewAutoresizingNone;
-		bookMark.frame = [self markRectInImageView];
-        
-		[imageView addSubview:bookMark];
+		[imageView addSubview:deleteImage];
 	}
     
 	return self;
@@ -448,7 +513,7 @@
     
 	imageView.bounds = viewRect; imageView.center = location; imageView.image = image;
     
-	bookMark.frame = [self markRectInImageView]; // Position bookmark image
+	deleteImage.frame = [self markRectInImageView]; // Position bookmark image
     
 	tintView.frame = imageView.bounds; backView.bounds = viewRect; backView.center = location;
     
@@ -467,7 +532,7 @@
     
 	imageView.image = nil; imageView.frame = defaultRect;
     
-	bookMark.hidden = YES; bookMark.frame = [self markRectInImageView];
+	deleteImage.hidden = YES; deleteImage.frame = [self markRectInImageView];
     
 	tintView.hidden = YES; tintView.frame = imageView.bounds; backView.frame = defaultRect;
     
@@ -481,6 +546,11 @@
 - (void)showTouched:(BOOL)touched
 {
 	tintView.hidden = (touched ? NO : YES);
+}
+
+- (void)showEditImage:(BOOL)aEditing
+{
+	deleteImage.hidden = (aEditing ? NO : YES);
 }
 
 - (void)showText:(NSString *)text

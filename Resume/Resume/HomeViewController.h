@@ -38,5 +38,6 @@
 - (CGSize)maximumContentSize;
 
 - (void)showText:(NSString *)text;
+- (void)showEditImage:(BOOL)editing;
 
 @end

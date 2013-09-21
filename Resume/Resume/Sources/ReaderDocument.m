@@ -60,6 +60,7 @@
 @synthesize bookmarks = _bookmarks;
 @synthesize lastOpen = _lastOpen;
 @synthesize password = _password;
+@synthesize fullFilePath = _fullFilePath;
 @dynamic fileName, fileURL;
 
 #pragma mark ReaderDocument class methods
@@ -212,6 +213,8 @@
 
 			_fileName = [ReaderDocument relativeFilePath:fullFilePath]; // File name
 
+            _fullFilePath = fullFilePath;
+            
 			CFURLRef docURLRef = (__bridge CFURLRef)[self fileURL]; // CFURLRef from NSURL
 
 			CGPDFDocumentRef thePDFDocRef = CGPDFDocumentCreateX(docURLRef, _password);

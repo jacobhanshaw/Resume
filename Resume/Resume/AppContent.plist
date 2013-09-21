@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>storageProviderArtwork</key>
+	<dict>
+		<key>Box</key>
+		<string>Box.png</string>
+		<key>Amazon S3</key>
+		<string>Amazon.png</string>
+		<key>SFTP</key>
+		<string>SFTP.png</string>
+		<key>Sharepoint</key>
+		<string>Sharepoint.png</string>
+		<key>FTP</key>
+		<string>FTP.png</string>
+		<key>Dropbox</key>
+		<string>Dropbox.png</string>
+		<key>Google Docs</key>
+		<string>Google.png</string>
+		<key>Samba</key>
+		<string>Samba.png</string>
+	</dict>
+</dict>
+</plist>

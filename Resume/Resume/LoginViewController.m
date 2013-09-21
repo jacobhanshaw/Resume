@@ -3,7 +3,7 @@
 #import "LoginViewController.h"
 
 #import <Parse/Parse.h>
-#import "ReaderDemoController.h"
+#import "PointIOController.h"
 
 @interface LoginViewController() <UITextFieldDelegate>
 {
@@ -13,6 +13,8 @@
 @end
 
 @implementation LoginViewController
+
+@synthesize logInType = _logInType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,12 +26,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-#warning CHECK in APP DELEGATE
-    // Check if user is cached and linked to Facebook, if so, bypass login
-    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-      //  [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:NO];
+    _signUpButton.hidden = (_logInType != AppLogIn);
+    _facebookLoginButton.hidden = (_logInType != AppLogIn);
+    
+    switch (_logInType) {
+        case AppLogIn:
+            _titleTextView.text = @"Resume Log In";
+            break;
+        case PointIOLogIn:
+            _titleTextView.text = @"Point IO Log In";
+            break;
+        case DropboxLogIn:
+            _titleTextView.text = @"Dropbox Log In";
+            break;
+        case AwsLogIn:
+            _titleTextView.text = @"AWS Log In";
+            break;
+        case GoogleDriveLogIn:
+            _titleTextView.text = @"Google Drive Log In";
+            break;
+        default:
+            break;
     }
+        
 }
 
 //Makes keyboard disappear on touch outside of keyboard or textfield
@@ -103,23 +128,43 @@
     [_emailTextField resignFirstResponder];
     [_passwordTextField resignFirstResponder];
     
-    
     __weak id weakSelfForBlock = self;
-    [PFUser logInWithUsernameInBackground:_emailTextField.text password:_passwordTextField.text
-                                    block:^(PFUser *user, NSError *error) {
-                                        [_activityIndicator stopAnimating];
-                                        
-                                        if (user) {
-                                            NSLog(@"User Logged In");
-                                            [weakSelfForBlock logInSuccess];
-                                        } else {
-                                            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                                            UIAlertView *alert = [[UIAlertView alloc]
-                                                                  initWithTitle:@"Error" message:errorString delegate:self
-                                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                            [alert show];
-                                        }
-                                    }];
+    
+    if(_logInType == AppLogIn)
+    {
+        [PFUser logInWithUsernameInBackground:_emailTextField.text password:_passwordTextField.text
+                                        block:^(PFUser *user, NSError *error) {
+                                            [_activityIndicator stopAnimating];
+                                            
+                                            if (user) {
+                                                NSLog(@"User Logged In");
+                                                [weakSelfForBlock logInSuccess];
+                                            } else {
+                                                NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                                                UIAlertView *alert = [[UIAlertView alloc]
+                                                                      initWithTitle:@"Error" message:errorString delegate:self
+                                                                      cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                                [alert show];
+                                            }
+                                        }];
+    }
+    else if (_logInType == PointIOLogIn)
+    {
+        [[PointIOController sharedPoint] attemptLogInWithUsername:_emailTextField.text password:_passwordTextField.text andCompletionBlock:^(BOOL success, NSError *error) {
+            [_activityIndicator stopAnimating];
+            
+            if (success) {
+                NSLog(@"User Logged In");
+                [weakSelfForBlock logInSuccess];
+            } else {
+                NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                UIAlertView *alert = [[UIAlertView alloc]
+                                      initWithTitle:@"Error" message:errorString delegate:self
+                                      cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+    }
     
     [_activityIndicator startAnimating];
 }
@@ -158,7 +203,6 @@
 
 -(void) logInSuccess
 {
-    //[self presentViewController:[[ReaderDemoController alloc] initWithNibName:nil bundle:nil] animated:YES completion:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
