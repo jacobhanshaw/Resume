@@ -165,25 +165,6 @@
     
     if([documents count] == 0)
         [self refresh: nil];
-    
-    if([documents count] == 0)
-    {
-        noPDFsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
-        noPDFsLabel.center = self.view.center;
-        noPDFsLabel.numberOfLines = 0;
-        noPDFsLabel.text = @"No PDFs found. Add one with the add button above.";
-        noPDFsLabel.textAlignment = UITextAlignmentCenter;
-        
-        [self.view addSubview:noPDFsLabel];
-    }
-    else
-    {
-        if(noPDFsLabel)
-        {
-            [noPDFsLabel removeFromSuperview];
-            noPDFsLabel = nil;
-        }
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -255,20 +236,62 @@
 
 - (void) refresh:(UIRefreshControl *)aRefreshControl
 {
-    refreshControl.hidden = YES;
-    ignoreInitialContentOffsetScroll = 0;
-    
     [self clearPDFS];
     
     if(!aRefreshControl)
         [activityIndicator startAnimating];
     
-    [self loadPDFS];
-    
-    if(!aRefreshControl)
-        [activityIndicator stopAnimating];
+    [self fetchPDFS];
+}
+
+- (void) fetchPDFS
+{
+    if ([[PFUser currentUser].username length] != 0)
+    {
+        PFQuery *query = [PFQuery queryWithClassName:@"Resume"];
+        [query whereKey:@"user" equalTo: [PFUser currentUser]];
+        __weak id weakSelfForBlock = self;
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved %d pdfs.", objects.count);
+                
+                [weakSelfForBlock savePDFObjects:objects];
+                
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
     else
-        [aRefreshControl endRefreshing];
+        [self loadPDFS];
+}
+
+- (void) savePDFObjects: (NSArray *) objects
+{
+    __weak id weakSelfForBlock = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, (unsigned long)NULL), ^(void) {
+        NSError *error;
+        for (PFObject *object in objects)
+        {
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
+            NSString *dataPath = [documentsDirectory stringByAppendingPathComponent: object.objectId];
+            
+            if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+                [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:nil];
+            
+            NSString *finalPath = [dataPath stringByAppendingPathComponent: [object objectForKey:@"title"]];
+            
+            [[((PFFile *)[object objectForKey:@"applicantResumeFile"]) getData] writeToFile: finalPath options:NSDataWritingAtomic error:nil];
+            
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelfForBlock loadPDFS];
+        });
+    });
 }
 
 - (void) clearPDFS
@@ -280,19 +303,54 @@
 - (void) loadPDFS
 {
     NSString *phrase = nil; // Document password (for unlocking most encrypted PDF files)
-    
-	NSArray *pdfs = [[NSBundle mainBundle] pathsForResourcesOfType:@"pdf" inDirectory:nil];
-  //  NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    /*
+	NSArray *pdfs = [[NSBundle mainBundle] pathsForResourcesOfType:@".pdf" inDirectory:nil];
     
     for(NSString *filePath in pdfs)
     {
-        
         [documents addObject:[ReaderDocument withDocumentFilePath:filePath password:phrase]];
-        //NSData *myFile = [NSData dataWithContentsOfFile:filePath];
-        //[myFile writeToFile: [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"bonus%@"]] atomically:YES];
+    }
+    */
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
+    
+    NSError *error;
+    NSArray * directoryContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:&error];
+    
+    for(NSString *directory in directoryContents)
+    {
+        NSString *fullPath = [documentsDirectory stringByAppendingPathComponent: directory];
+        for(NSString *filePath in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:fullPath error:&error])
+        {
+            fullPath = [fullPath stringByAppendingPathComponent:filePath];
+            if(filePath && [[filePath substringFromIndex:[filePath length] - 3] isEqualToString:@"pdf"])
+                [documents addObject:[ReaderDocument withDocumentFilePath:fullPath password:phrase]];
+        }
     }
     
     [theThumbsView reloadThumbsCenterOnIndex:([documents count] - 1)];
+    
+    if([documents count] == 0)
+    {
+        noPDFsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+        noPDFsLabel.center = self.view.center;
+        noPDFsLabel.numberOfLines = 0;
+        noPDFsLabel.text = @"No PDFs found. Add one with the add button above.";
+        noPDFsLabel.textAlignment = UITextAlignmentCenter;
+        
+        [self.view addSubview:noPDFsLabel];
+    }
+    else
+    {
+        if(noPDFsLabel)
+        {
+            [noPDFsLabel removeFromSuperview];
+            noPDFsLabel = nil;
+        }
+    }
+    
+    [activityIndicator stopAnimating];
+    [refreshControl endRefreshing];
 }
 
 #pragma mark UIThumbsViewDelegate methods
@@ -335,7 +393,7 @@
 
 - (void)thumbsView:(ReaderThumbsView *)thumbsView refreshThumbCell:(ThumbsPageThumbNoBookmark *)thumbCell forIndex:(NSInteger)index
 {
-
+    
 }
 
 - (void)thumbsView:(ReaderThumbsView *)thumbsView didSelectThumbWithIndex:(NSInteger)index
@@ -375,7 +433,7 @@
 
 - (void)thumbsView:(ReaderThumbsView *)thumbsView didPressThumbWithIndex:(NSInteger)index
 {
-
+    
 }
 
 @end
