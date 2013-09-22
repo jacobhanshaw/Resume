@@ -12,7 +12,7 @@
 		8911E45B17ED74CE0052D7E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8911E45A17ED74CE0052D7E1 /* UIKit.framework */; };
 		8911E45D17ED74CE0052D7E1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8911E45C17ED74CE0052D7E1 /* CoreData.framework */; };
 		8911E46317ED74CE0052D7E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8911E46117ED74CE0052D7E1 /* InfoPlist.strings */; };
-		8911E46517ED74CE0052D7E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E46417ED74CE0052D7E1 /* main.m */; };
+		8911E46517ED74CE0052D7E1 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8911E46417ED74CE0052D7E1 /* main.mm */; };
 		8911E46917ED74CE0052D7E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E46817ED74CE0052D7E1 /* AppDelegate.m */; };
 		8911E46C17ED74CE0052D7E1 /* Resume.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8911E46A17ED74CE0052D7E1 /* Resume.xcdatamodeld */; };
 		8911E46E17ED74CE0052D7E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8911E46D17ED74CE0052D7E1 /* Images.xcassets */; };
@@ -82,7 +82,7 @@
 		8911E51A17ED8EF90052D7E1 /* Reader-Thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E50717ED8EF90052D7E1 /* Reader-Thumbs.png */; };
 		8911E51B17ED8EF90052D7E1 /* Reader-Thumbs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E50817ED8EF90052D7E1 /* Reader-Thumbs@2x.png */; };
 		8911E52217ED95980052D7E1 /* Reader.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8911E52117ED95980052D7E1 /* Reader.pdf */; };
-		8911E52A17ED9F910052D7E1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E52817ED9F910052D7E1 /* HomeViewController.m */; };
+		8911E52A17ED9F910052D7E1 /* HomeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8911E52817ED9F910052D7E1 /* HomeViewController.mm */; };
 		8911E52D17EDA8E40052D7E1 /* CustomRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E52C17EDA8E40052D7E1 /* CustomRefreshControl.m */; };
 		8911E53017EDEB9E0052D7E1 /* HomeMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911E52E17EDEB9E0052D7E1 /* HomeMainToolbar.m */; };
 		8911E53317EDF4450052D7E1 /* Reader copy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8911E53217EDF4450052D7E1 /* Reader copy.pdf */; };
@@ -109,6 +109,25 @@
 		8911E58A17EE32950052D7E1 /* Dropbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E58217EE32950052D7E1 /* Dropbox.png */; };
 		8911E58B17EE32950052D7E1 /* Google.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E58317EE32950052D7E1 /* Google.png */; };
 		8911E58F17EE75700052D7E1 /* glyphicons_151_new_window.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E58E17EE75700052D7E1 /* glyphicons_151_new_window.png */; };
+		8911E59117EE95C50052D7E1 /* qr_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E59017EE95C50052D7E1 /* qr_small.png */; };
+		8911E59317EE95CE0052D7E1 /* qr_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911E59217EE95CE0052D7E1 /* qr_small@2x.png */; };
+		8953CB5E17EEA2C9004B21FC /* QrCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8953CB5C17EEA2C9004B21FC /* QrCodeViewController.m */; };
+		8953CB5F17EEA2C9004B21FC /* QrCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8953CB5D17EEA2C9004B21FC /* QrCodeViewController.xib */; };
+		89A7F63817EEB513005C1185 /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F63717EEB513005C1185 /* QRCodeGenerator.m */; };
+		89A7F64717EEB520005C1185 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F63917EEB520005C1185 /* bitstream.c */; };
+		89A7F64817EEB520005C1185 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F63B17EEB520005C1185 /* mask.c */; };
+		89A7F64917EEB520005C1185 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F63D17EEB520005C1185 /* qrencode.c */; };
+		89A7F64A17EEB520005C1185 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F63F17EEB520005C1185 /* qrinput.c */; };
+		89A7F64B17EEB520005C1185 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F64117EEB520005C1185 /* qrspec.c */; };
+		89A7F64C17EEB520005C1185 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F64317EEB520005C1185 /* rscode.c */; };
+		89A7F64D17EEB520005C1185 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 89A7F64517EEB520005C1185 /* split.c */; };
+		89DB62BF17EEBDA800946551 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DB62BE17EEBDA800946551 /* AVFoundation.framework */; };
+		89DB62C117EEBDBF00946551 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DB62C017EEBDBE00946551 /* CoreVideo.framework */; };
+		89DB62C317EEBDC500946551 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DB62C217EEBDC500946551 /* CoreMedia.framework */; };
+		89DB62C517EEBDCD00946551 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DB62C417EEBDCD00946551 /* libiconv.dylib */; };
+		89DB62C717EEBDD500946551 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DB62C617EEBDD500946551 /* AddressBook.framework */; };
+		89DB62C917EEBDDB00946551 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DB62C817EEBDDB00946551 /* AddressBookUI.framework */; };
+		89DB62D517EEC6B900946551 /* libZXingWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DB62D017EEBFAE00946551 /* libZXingWidget.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +137,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8911E45217ED74CE0052D7E1;
 			remoteInfo = Resume;
+		};
+		89DB62CF17EEBFAE00946551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89A7F64F17EEBC86005C1185 /* ZXingWidget.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = ZXingWidget;
+		};
+		89DB62D117EEBFAE00946551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89A7F64F17EEBC86005C1185 /* ZXingWidget.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D60398D13DF7CAD006F4B51;
+			remoteInfo = ZXingTests;
+		};
+		89DB62D317EEC69700946551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89A7F64F17EEBC86005C1185 /* ZXingWidget.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = ZXingWidget;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -129,7 +169,7 @@
 		8911E45C17ED74CE0052D7E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8911E46017ED74CE0052D7E1 /* Resume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Resume-Info.plist"; sourceTree = "<group>"; };
 		8911E46217ED74CE0052D7E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8911E46417ED74CE0052D7E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8911E46417ED74CE0052D7E1 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		8911E46617ED74CE0052D7E1 /* Resume-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Resume-Prefix.pch"; sourceTree = "<group>"; };
 		8911E46717ED74CE0052D7E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8911E46817ED74CE0052D7E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -222,7 +262,7 @@
 		8911E50717ED8EF90052D7E1 /* Reader-Thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs.png"; sourceTree = "<group>"; };
 		8911E50817ED8EF90052D7E1 /* Reader-Thumbs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs@2x.png"; sourceTree = "<group>"; };
 		8911E52117ED95980052D7E1 /* Reader.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Reader.pdf; sourceTree = "<group>"; };
-		8911E52817ED9F910052D7E1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		8911E52817ED9F910052D7E1 /* HomeViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HomeViewController.mm; sourceTree = "<group>"; };
 		8911E52917ED9F910052D7E1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		8911E52B17EDA8E40052D7E1 /* CustomRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRefreshControl.h; sourceTree = "<group>"; };
 		8911E52C17EDA8E40052D7E1 /* CustomRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRefreshControl.m; sourceTree = "<group>"; };
@@ -264,6 +304,34 @@
 		8911E58217EE32950052D7E1 /* Dropbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropbox.png; sourceTree = "<group>"; };
 		8911E58317EE32950052D7E1 /* Google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Google.png; sourceTree = "<group>"; };
 		8911E58E17EE75700052D7E1 /* glyphicons_151_new_window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_151_new_window.png; sourceTree = "<group>"; };
+		8911E59017EE95C50052D7E1 /* qr_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qr_small.png; sourceTree = "<group>"; };
+		8911E59217EE95CE0052D7E1 /* qr_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr_small@2x.png"; sourceTree = "<group>"; };
+		8953CB5B17EEA2C9004B21FC /* QrCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrCodeViewController.h; sourceTree = "<group>"; };
+		8953CB5C17EEA2C9004B21FC /* QrCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrCodeViewController.m; sourceTree = "<group>"; };
+		8953CB5D17EEA2C9004B21FC /* QrCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QrCodeViewController.xib; sourceTree = "<group>"; };
+		89A7F63617EEB513005C1185 /* QRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerator.h; sourceTree = "<group>"; };
+		89A7F63717EEB513005C1185 /* QRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerator.m; sourceTree = "<group>"; };
+		89A7F63917EEB520005C1185 /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
+		89A7F63A17EEB520005C1185 /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
+		89A7F63B17EEB520005C1185 /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
+		89A7F63C17EEB520005C1185 /* mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mask.h; sourceTree = "<group>"; };
+		89A7F63D17EEB520005C1185 /* qrencode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrencode.c; sourceTree = "<group>"; };
+		89A7F63E17EEB520005C1185 /* qrencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrencode.h; sourceTree = "<group>"; };
+		89A7F63F17EEB520005C1185 /* qrinput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrinput.c; sourceTree = "<group>"; };
+		89A7F64017EEB520005C1185 /* qrinput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrinput.h; sourceTree = "<group>"; };
+		89A7F64117EEB520005C1185 /* qrspec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrspec.c; sourceTree = "<group>"; };
+		89A7F64217EEB520005C1185 /* qrspec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrspec.h; sourceTree = "<group>"; };
+		89A7F64317EEB520005C1185 /* rscode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rscode.c; sourceTree = "<group>"; };
+		89A7F64417EEB520005C1185 /* rscode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rscode.h; sourceTree = "<group>"; };
+		89A7F64517EEB520005C1185 /* split.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = split.c; sourceTree = "<group>"; };
+		89A7F64617EEB520005C1185 /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
+		89A7F64F17EEBC86005C1185 /* ZXingWidget.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingWidget.xcodeproj; path = ../../zxing/iphone/ZXingWidget/ZXingWidget.xcodeproj; sourceTree = SOURCE_ROOT; };
+		89DB62BE17EEBDA800946551 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		89DB62C017EEBDBE00946551 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		89DB62C217EEBDC500946551 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		89DB62C417EEBDCD00946551 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		89DB62C617EEBDD500946551 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		89DB62C817EEBDDB00946551 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +339,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89DB62D517EEC6B900946551 /* libZXingWidget.a in Frameworks */,
+				89DB62C917EEBDDB00946551 /* AddressBookUI.framework in Frameworks */,
+				89DB62C717EEBDD500946551 /* AddressBook.framework in Frameworks */,
+				89DB62C517EEBDCD00946551 /* libiconv.dylib in Frameworks */,
+				89DB62C317EEBDC500946551 /* CoreMedia.framework in Frameworks */,
+				89DB62C117EEBDBF00946551 /* CoreVideo.framework in Frameworks */,
+				89DB62BF17EEBDA800946551 /* AVFoundation.framework in Frameworks */,
 				8911E4B517ED8DB80052D7E1 /* MessageUI.framework in Frameworks */,
 				8911E4B317ED8DAF0052D7E1 /* ImageIO.framework in Frameworks */,
 				8911E49E17ED785B0052D7E1 /* SystemConfiguration.framework in Frameworks */,
@@ -327,6 +402,13 @@
 		8911E45517ED74CE0052D7E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89DB62C817EEBDDB00946551 /* AddressBookUI.framework */,
+				89DB62C617EEBDD500946551 /* AddressBook.framework */,
+				89DB62C417EEBDCD00946551 /* libiconv.dylib */,
+				89DB62C217EEBDC500946551 /* CoreMedia.framework */,
+				89DB62C017EEBDBE00946551 /* CoreVideo.framework */,
+				89DB62BE17EEBDA800946551 /* AVFoundation.framework */,
+				89A7F64F17EEBC86005C1185 /* ZXingWidget.xcodeproj */,
 				8911E4B417ED8DB80052D7E1 /* MessageUI.framework */,
 				8911E4B217ED8DAF0052D7E1 /* ImageIO.framework */,
 				8911E4A217ED799D0052D7E1 /* FacebookSDK.framework */,
@@ -361,7 +443,10 @@
 				8911E4A517ED79AD0052D7E1 /* LoginViewController.m */,
 				8911E4A617ED79AD0052D7E1 /* LoginViewController.xib */,
 				8911E52917ED9F910052D7E1 /* HomeViewController.h */,
-				8911E52817ED9F910052D7E1 /* HomeViewController.m */,
+				8911E52817ED9F910052D7E1 /* HomeViewController.mm */,
+				8953CB5B17EEA2C9004B21FC /* QrCodeViewController.h */,
+				8953CB5C17EEA2C9004B21FC /* QrCodeViewController.m */,
+				8953CB5D17EEA2C9004B21FC /* QrCodeViewController.xib */,
 				8911E55417EE12600052D7E1 /* PointServicesViewController.h */,
 				8911E55517EE12600052D7E1 /* PointServicesViewController.m */,
 				8911E55917EE1CE00052D7E1 /* PointIOController.h */,
@@ -383,7 +468,7 @@
 				8911E55717EE1C8A0052D7E1 /* AppKeys.plist */,
 				8911E46017ED74CE0052D7E1 /* Resume-Info.plist */,
 				8911E46117ED74CE0052D7E1 /* InfoPlist.strings */,
-				8911E46417ED74CE0052D7E1 /* main.m */,
+				8911E46417ED74CE0052D7E1 /* main.mm */,
 				8911E46617ED74CE0052D7E1 /* Resume-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -410,11 +495,8 @@
 		8911E4B617ED8EC50052D7E1 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				89A7F64E17EEB638005C1185 /* QRCodeMaker */,
 				8911E56017EE29F80052D7E1 /* JSON */,
-				8911E55D17EE29F50052D7E1 /* JSONConnection.h */,
-				8911E55E17EE29F50052D7E1 /* JSONConnection.m */,
-				8911E57717EE2A2D0052D7E1 /* ServiceResult.h */,
-				8911E57817EE2A2D0052D7E1 /* ServiceResult.m */,
 				8911E4B717ED8ECF0052D7E1 /* Reader */,
 			);
 			name = "External Libraries";
@@ -505,6 +587,8 @@
 		8911E51F17ED957D0052D7E1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8911E59017EE95C50052D7E1 /* qr_small.png */,
+				8911E59217EE95CE0052D7E1 /* qr_small@2x.png */,
 				8911E58E17EE75700052D7E1 /* glyphicons_151_new_window.png */,
 				8911E57C17EE32950052D7E1 /* Samba.png */,
 				8911E57D17EE32950052D7E1 /* FTP.png */,
@@ -546,6 +630,10 @@
 		8911E56017EE29F80052D7E1 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				8911E55D17EE29F50052D7E1 /* JSONConnection.h */,
+				8911E55E17EE29F50052D7E1 /* JSONConnection.m */,
+				8911E57717EE2A2D0052D7E1 /* ServiceResult.h */,
+				8911E57817EE2A2D0052D7E1 /* ServiceResult.m */,
 				8911E56117EE2A030052D7E1 /* JSON.h */,
 				8911E56217EE2A030052D7E1 /* JSONKit.h */,
 				8911E56317EE2A030052D7E1 /* JSONKit.m */,
@@ -565,6 +653,38 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
+		89A7F64E17EEB638005C1185 /* QRCodeMaker */ = {
+			isa = PBXGroup;
+			children = (
+				89A7F63917EEB520005C1185 /* bitstream.c */,
+				89A7F63A17EEB520005C1185 /* bitstream.h */,
+				89A7F63B17EEB520005C1185 /* mask.c */,
+				89A7F63C17EEB520005C1185 /* mask.h */,
+				89A7F63D17EEB520005C1185 /* qrencode.c */,
+				89A7F63E17EEB520005C1185 /* qrencode.h */,
+				89A7F63F17EEB520005C1185 /* qrinput.c */,
+				89A7F64017EEB520005C1185 /* qrinput.h */,
+				89A7F64117EEB520005C1185 /* qrspec.c */,
+				89A7F64217EEB520005C1185 /* qrspec.h */,
+				89A7F64317EEB520005C1185 /* rscode.c */,
+				89A7F64417EEB520005C1185 /* rscode.h */,
+				89A7F64517EEB520005C1185 /* split.c */,
+				89A7F64617EEB520005C1185 /* split.h */,
+				89A7F63617EEB513005C1185 /* QRCodeGenerator.h */,
+				89A7F63717EEB513005C1185 /* QRCodeGenerator.m */,
+			);
+			name = QRCodeMaker;
+			sourceTree = "<group>";
+		};
+		89DB62CB17EEBFAE00946551 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89DB62D017EEBFAE00946551 /* libZXingWidget.a */,
+				89DB62D217EEBFAE00946551 /* ZXingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -579,6 +699,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				89DB62D417EEC69700946551 /* PBXTargetDependency */,
 			);
 			name = Resume;
 			productName = Resume;
@@ -630,6 +751,12 @@
 			mainGroup = 8911E44A17ED74CE0052D7E1;
 			productRefGroup = 8911E45417ED74CE0052D7E1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 89DB62CB17EEBFAE00946551 /* Products */;
+					ProjectRef = 89A7F64F17EEBC86005C1185 /* ZXingWidget.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8911E45217ED74CE0052D7E1 /* Resume */,
@@ -637,6 +764,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		89DB62D017EEBFAE00946551 /* libZXingWidget.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libZXingWidget.a;
+			remoteRef = 89DB62CF17EEBFAE00946551 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		89DB62D217EEBFAE00946551 /* ZXingTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ZXingTests.octest;
+			remoteRef = 89DB62D117EEBFAE00946551 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8911E45117ED74CE0052D7E1 /* Resources */ = {
@@ -654,6 +798,7 @@
 				8911E51717ED8EF90052D7E1 /* Reader-Mark-Y@2x.png in Resources */,
 				8911E51017ED8EF90052D7E1 /* Reader-Button-N.png in Resources */,
 				8911E57B17EE32580052D7E1 /* AppContent.plist in Resources */,
+				8953CB5F17EEA2C9004B21FC /* QrCodeViewController.xib in Resources */,
 				8911E50C17ED8EF90052D7E1 /* AppIcon-144.png in Resources */,
 				8911E50F17ED8EF90052D7E1 /* Reader-Button-H@2x.png in Resources */,
 				8911E51317ED8EF90052D7E1 /* Reader-Email@2x.png in Resources */,
@@ -666,6 +811,7 @@
 				8911E51917ED8EF90052D7E1 /* Reader-Print@2x.png in Resources */,
 				8911E51B17ED8EF90052D7E1 /* Reader-Thumbs@2x.png in Resources */,
 				8911E58F17EE75700052D7E1 /* glyphicons_151_new_window.png in Resources */,
+				8911E59117EE95C50052D7E1 /* qr_small.png in Resources */,
 				8911E51417ED8EF90052D7E1 /* Reader-Mark-N.png in Resources */,
 				8911E51117ED8EF90052D7E1 /* Reader-Button-N@2x.png in Resources */,
 				8911E51A17ED8EF90052D7E1 /* Reader-Thumbs.png in Resources */,
@@ -683,6 +829,7 @@
 				8911E58517EE32950052D7E1 /* FTP.png in Resources */,
 				8911E4A817ED79AD0052D7E1 /* LoginViewController.xib in Resources */,
 				8911E50E17ED8EF90052D7E1 /* Reader-Button-H.png in Resources */,
+				8911E59317EE95CE0052D7E1 /* qr_small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +851,7 @@
 				8911E55B17EE1CE00052D7E1 /* PointIOController.m in Sources */,
 				8911E52D17EDA8E40052D7E1 /* CustomRefreshControl.m in Sources */,
 				8911E4EA17ED8EE30052D7E1 /* ReaderThumbCache.m in Sources */,
+				89A7F64B17EEB520005C1185 /* qrspec.c in Sources */,
 				8911E4E717ED8EE30052D7E1 /* ReaderDocumentOutline.m in Sources */,
 				8911E4F417ED8EE30052D7E1 /* UIXToolbarView.m in Sources */,
 				8911E4E217ED8EE30052D7E1 /* ReaderConstants.m in Sources */,
@@ -717,9 +865,11 @@
 				8911E4EC17ED8EE30052D7E1 /* ReaderThumbQueue.m in Sources */,
 				8911E46917ED74CE0052D7E1 /* AppDelegate.m in Sources */,
 				8911E55F17EE29F50052D7E1 /* JSONConnection.m in Sources */,
-				8911E46517ED74CE0052D7E1 /* main.m in Sources */,
+				8911E46517ED74CE0052D7E1 /* main.mm in Sources */,
+				89A7F63817EEB513005C1185 /* QRCodeGenerator.m in Sources */,
 				8911E57117EE2A030052D7E1 /* NSObject+SBJSON.m in Sources */,
 				8911E4F317ED8EE30052D7E1 /* ThumbsViewController.m in Sources */,
+				89A7F64917EEB520005C1185 /* qrencode.c in Sources */,
 				8911E57917EE2A2D0052D7E1 /* ServiceResult.m in Sources */,
 				8911E4F217ED8EE30052D7E1 /* ThumbsMainToolbar.m in Sources */,
 				8911E4EE17ED8EE30052D7E1 /* ReaderThumbRequest.m in Sources */,
@@ -731,9 +881,15 @@
 				8911E57417EE2A030052D7E1 /* SBJsonBase.m in Sources */,
 				8911E53017EDEB9E0052D7E1 /* HomeMainToolbar.m in Sources */,
 				8911E4ED17ED8EE30052D7E1 /* ReaderThumbRender.m in Sources */,
+				89A7F64A17EEB520005C1185 /* qrinput.c in Sources */,
+				89A7F64717EEB520005C1185 /* bitstream.c in Sources */,
+				8953CB5E17EEA2C9004B21FC /* QrCodeViewController.m in Sources */,
+				89A7F64D17EEB520005C1185 /* split.c in Sources */,
 				8911E4A117ED78B20052D7E1 /* AppModel.m in Sources */,
 				8911E4A717ED79AD0052D7E1 /* LoginViewController.m in Sources */,
-				8911E52A17ED9F910052D7E1 /* HomeViewController.m in Sources */,
+				89A7F64C17EEB520005C1185 /* rscode.c in Sources */,
+				8911E52A17ED9F910052D7E1 /* HomeViewController.mm in Sources */,
+				89A7F64817EEB520005C1185 /* mask.c in Sources */,
 				8911E57517EE2A030052D7E1 /* SBJsonParser.m in Sources */,
 				8911E55617EE12600052D7E1 /* PointServicesViewController.m in Sources */,
 				8911E57217EE2A030052D7E1 /* NSString+SBJSON.m in Sources */,
@@ -758,6 +914,11 @@
 			isa = PBXTargetDependency;
 			target = 8911E45217ED74CE0052D7E1 /* Resume */;
 			targetProxy = 8911E47917ED74CE0052D7E1 /* PBXContainerItemProxy */;
+		};
+		89DB62D417EEC69700946551 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZXingWidget;
+			targetProxy = 89DB62D317EEC69700946551 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -856,13 +1017,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/JacobHanshaw/Desktop/Personal\\ Projects/Resume/Resume",
+					/Users/JacobHanshaw/Desktop/PersonalProjects/Resume/Resume,
+					/Users/JacobHanshaw/Desktop/PersonalProjects/zxing/cpp/core/src,
+					"/Users/JacobHanshaw/Desktop/PersonalProjects/zxing/iphone/ZXingWidget/Classes/**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resume/Resume-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					../../zxing/cpp/core/src,
+					"../../zxing/iphone/ZXingWidget/Classes/**",
+				);
 				INFOPLIST_FILE = "Resume/Resume-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -875,13 +1045,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/JacobHanshaw/Desktop/Personal\\ Projects/Resume/Resume",
+					/Users/JacobHanshaw/Desktop/PersonalProjects/Resume/Resume,
+					/Users/JacobHanshaw/Desktop/PersonalProjects/zxing/cpp/core/src,
+					"/Users/JacobHanshaw/Desktop/PersonalProjects/zxing/iphone/ZXingWidget/Classes/**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resume/Resume-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					../../zxing/cpp/core/src,
+					"../../zxing/iphone/ZXingWidget/Classes/**",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = "Resume/Resume-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

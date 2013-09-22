@@ -32,6 +32,8 @@
 #import "ReaderThumbCache.h"
 #import "ReaderThumbQueue.h"
 
+#import "QrCodeViewController.h"
+
 #import <MessageUI/MessageUI.h>
 
 @interface ReaderViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate,
@@ -328,6 +330,9 @@
 	theScrollView.userInteractionEnabled = YES;
 	theScrollView.autoresizesSubviews = NO;
 	theScrollView.delegate = self;
+    
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
+        theScrollView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
 
 	[self.view addSubview:theScrollView];
 
@@ -851,6 +856,13 @@
 	}
 
 #endif // end of READER_ENABLE_MAIL Option
+}
+
+- (void)tappedInToolbar:(ReaderMainToolbar *)toolbar shareButton:(UIButton *)button
+{
+    QrCodeViewController *qrVC = [[QrCodeViewController alloc] init];
+    [qrVC setUpWithText:document.objectId];
+    [self presentViewController:qrVC animated:YES completion:nil];
 }
 
 - (void)tappedInToolbar:(ReaderMainToolbar *)toolbar markButton:(UIButton *)button

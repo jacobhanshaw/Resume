@@ -105,7 +105,7 @@
 	[self.view addSubview:mainToolbar];
 
 	CGRect thumbsRect = viewRect; UIEdgeInsets insets = UIEdgeInsetsZero;
-
+    
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
 	{
 		thumbsRect.origin.y += TOOLBAR_HEIGHT; thumbsRect.size.height -= TOOLBAR_HEIGHT;
@@ -114,6 +114,9 @@
 	{
 		insets.top = TOOLBAR_HEIGHT;
 	}
+    
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
+        insets.top += TOOLBAR_HEIGHT;
 
 	theThumbsView = [[ReaderThumbsView alloc] initWithFrame:thumbsRect]; // Rest
 

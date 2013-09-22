@@ -6,13 +6,9 @@
 //  Copyright 2009 University of Wisconsin - Madison. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @class ServiceResult;
 
 @interface JSONConnection : NSObject
-
-
 
 - (JSONConnection*)initWithRequest:(NSURLRequest *) request
                       andUserInfo:(NSMutableDictionary *)userInfo;

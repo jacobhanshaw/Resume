@@ -44,6 +44,9 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
+        frame.origin.y += 20.0f;
+    
 	if ((self = [super initWithFrame:frame]))
 	{
 		self.autoresizesSubviews = YES;

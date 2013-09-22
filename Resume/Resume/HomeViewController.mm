@@ -25,6 +25,7 @@
 
 #import "HomeViewController.h"
 
+using namespace std; //math.h undef's "isinf", which is used in mapkit...
 #import "ReaderConstants.h"
 #import "ReaderThumbRequest.h"
 #import "ReaderThumbCache.h"
@@ -33,13 +34,16 @@
 #import "CustomRefreshControl.h"
 #import "LoginViewController.h"
 #import "ReaderViewController.h"
-#import "PointServicesViewController.h"
+//#import "PointServicesViewController.h"
 #import "HomeMainToolbar.h"
+
+#import <ZXingWidgetController.h>
+#import "QRCodeReader.h"
 
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface HomeViewController () <ReaderViewControllerDelegate, ReaderThumbsViewDelegate, HomeMainToolbarDelegate>
+@interface HomeViewController () <ReaderViewControllerDelegate, ReaderThumbsViewDelegate, HomeMainToolbarDelegate, ZXingDelegate>
 
 @end
 
@@ -107,6 +111,9 @@
 		insets.top = TOOLBAR_HEIGHT;
 	}
     
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
+        insets.top += TOOLBAR_HEIGHT;
+    
 	theThumbsView = [[ReaderThumbsView alloc] initWithFrame:thumbsRect]; // Rest
     
 	theThumbsView.contentInset = insets; theThumbsView.scrollIndicatorInsets = insets;
@@ -149,7 +156,27 @@
 
 - (void)tappedInToolbar:(HomeMainToolbar *)toolbar addButton:(UIButton *)button
 {
-    [self presentViewController: [[PointServicesViewController alloc] init] animated:YES completion:nil];
+    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO showLicense:NO];
+    widController.readers = [[NSMutableSet alloc ] initWithObjects:[[QRCodeReader alloc] init], nil];
+    [self presentViewController:widController animated:NO completion:nil];
+}
+
+- (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    if([result isEqualToString:@"TEST_BUMP"])
+    {
+  
+    }
+    else
+    {
+        
+    }
+}
+
+- (void) zxingControllerDidCancel:(ZXingWidgetController*)controller
+{
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)tappedInToolbar:(HomeMainToolbar *)toolbar editButton:(UIButton *)button
@@ -344,7 +371,7 @@
         noPDFsLabel.center = self.view.center;
         noPDFsLabel.numberOfLines = 0;
         noPDFsLabel.text = @"No PDFs found. \nAdd one with the add button above.";
-        noPDFsLabel.textAlignment = UITextAlignmentCenter;
+        noPDFsLabel.textAlignment = NSTextAlignmentCenter;
         
         [self.view addSubview:noPDFsLabel];
     }
@@ -507,7 +534,7 @@
 		textLabel.userInteractionEnabled = NO;
 		textLabel.contentMode = UIViewContentModeRedraw;
 		textLabel.autoresizingMask = UIViewAutoresizingNone;
-		textLabel.textAlignment = UITextAlignmentCenter;
+		textLabel.textAlignment = NSTextAlignmentCenter;
 		textLabel.font = [UIFont systemFontOfSize:fontSize];
 		textLabel.textColor = [UIColor colorWithWhite:0.24f alpha:1.0f];
 		textLabel.backgroundColor = [UIColor whiteColor];

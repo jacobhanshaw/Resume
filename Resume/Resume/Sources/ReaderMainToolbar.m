@@ -148,6 +148,21 @@
 		markImageY = [UIImage imageNamed:@"Reader-Mark-Y"]; // Y image
 
 #endif // end of READER_BOOKMARKS Option
+        
+        rightButtonX -= (MARK_BUTTON_WIDTH + BUTTON_SPACE);
+        
+		UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+		shareButton.frame = CGRectMake(rightButtonX, BUTTON_Y, MARK_BUTTON_WIDTH, BUTTON_HEIGHT);
+		[shareButton setImage:[UIImage imageNamed:@"qr_small.png"] forState:UIControlStateNormal];
+		[shareButton addTarget:self action:@selector(shareButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+		[shareButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+		[shareButton setBackgroundImage:buttonN forState:UIControlStateNormal];
+		shareButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+		shareButton.exclusiveTouch = YES;
+        
+		[self addSubview:shareButton]; titleWidth -= (MARK_BUTTON_WIDTH + BUTTON_SPACE);
+        
 
 #if (READER_ENABLE_MAIL == TRUE) // Option
 
@@ -321,6 +336,11 @@
 - (void)emailButtonTapped:(UIButton *)button
 {
 	[delegate tappedInToolbar:self emailButton:button];
+}
+
+- (void)shareButtonTapped:(UIButton *)button
+{
+	[delegate tappedInToolbar:self shareButton:button];
 }
 
 - (void)markButtonTapped:(UIButton *)button
