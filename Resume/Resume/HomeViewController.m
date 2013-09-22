@@ -46,6 +46,7 @@
 @implementation HomeViewController
 {
     BOOL editing;
+    BOOL isRefreshing;
     
     int ignoreInitialContentOffsetScroll;
 	NSMutableArray *documents;
@@ -236,12 +237,17 @@
 
 - (void) refresh:(UIRefreshControl *)aRefreshControl
 {
-    [self clearPDFS];
-    
-    if(!aRefreshControl)
-        [activityIndicator startAnimating];
-    
-    [self fetchPDFS];
+    if(!isRefreshing)
+    {
+        isRefreshing = YES;
+        
+        [self clearPDFS];
+        
+        if(!aRefreshControl)
+            [activityIndicator startAnimating];
+        
+        [self fetchPDFS];
+    }
 }
 
 - (void) fetchPDFS
@@ -283,7 +289,8 @@
             
             NSString *finalPath = [dataPath stringByAppendingPathComponent: [object objectForKey:@"title"]];
             
-            [[((PFFile *)[object objectForKey:@"applicantResumeFile"]) getData] writeToFile: finalPath options:NSDataWritingAtomic error:nil];
+            if([[finalPath substringFromIndex:[finalPath length] - 3] isEqualToString:@"pdf"])
+                [[((PFFile *)[object objectForKey:@"applicantResumeFile"]) getData] writeToFile: finalPath options:NSDataWritingAtomic error:nil];
             
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
@@ -303,14 +310,7 @@
 - (void) loadPDFS
 {
     NSString *phrase = nil; // Document password (for unlocking most encrypted PDF files)
-    /*
-	NSArray *pdfs = [[NSBundle mainBundle] pathsForResourcesOfType:@".pdf" inDirectory:nil];
     
-    for(NSString *filePath in pdfs)
-    {
-        [documents addObject:[ReaderDocument withDocumentFilePath:filePath password:phrase]];
-    }
-    */
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
     
@@ -324,23 +324,13 @@
         {
             fullPath = [fullPath stringByAppendingPathComponent:filePath];
             if(filePath && [[filePath substringFromIndex:[filePath length] - 3] isEqualToString:@"pdf"])
-                [documents addObject:[ReaderDocument withDocumentFilePath:fullPath password:phrase]];
+                [documents addObject:[ReaderDocument withDocumentFilePath:fullPath password:phrase andObjectId:directory]];
         }
     }
     
     [theThumbsView reloadThumbsCenterOnIndex:([documents count] - 1)];
     
-    if([documents count] == 0)
-    {
-        noPDFsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
-        noPDFsLabel.center = self.view.center;
-        noPDFsLabel.numberOfLines = 0;
-        noPDFsLabel.text = @"No PDFs found. Add one with the add button above.";
-        noPDFsLabel.textAlignment = UITextAlignmentCenter;
-        
-        [self.view addSubview:noPDFsLabel];
-    }
-    else
+    if([documents count] != 0)
     {
         if(noPDFsLabel)
         {
@@ -348,9 +338,20 @@
             noPDFsLabel = nil;
         }
     }
+    else if(!noPDFsLabel)
+    {
+        noPDFsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+        noPDFsLabel.center = self.view.center;
+        noPDFsLabel.numberOfLines = 0;
+        noPDFsLabel.text = @"No PDFs found. \nAdd one with the add button above.";
+        noPDFsLabel.textAlignment = UITextAlignmentCenter;
+        
+        [self.view addSubview:noPDFsLabel];
+    }
     
     [activityIndicator stopAnimating];
     [refreshControl endRefreshing];
+    isRefreshing = NO;
 }
 
 #pragma mark UIThumbsViewDelegate methods
@@ -418,9 +419,15 @@
     {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSError *error;
+        
         if ([fileManager removeItemAtPath:documentToDelete.fullFilePath error:&error] != YES)
             NSLog(@"%@", [error localizedDescription]);
-        [self refresh:nil];
+        
+        PFObject *object = [PFQuery getObjectOfClass:@"Resume" objectId:documentToDelete.objectId error:&error];
+        __weak id weakSelfForBlock = self;
+        [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            [weakSelfForBlock refresh:nil];
+        }];
     }
 }
 

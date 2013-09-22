@@ -53,6 +53,7 @@
 #pragma mark Properties
 
 @synthesize guid = _guid;
+@synthesize objectId = _objectId;
 @synthesize fileDate = _fileDate;
 @synthesize fileSize = _fileSize;
 @synthesize pageCount = _pageCount;
@@ -154,17 +155,15 @@
 	return document;
 }
 
-+ (ReaderDocument *)withDocumentFilePath:(NSString *)filePath password:(NSString *)phrase
++ (ReaderDocument *)withDocumentFilePath:(NSString *)filePath password:(NSString *)phrase andObjectId:(NSString *)aObjectId
 {
 	ReaderDocument *document = nil; // ReaderDocument object
 
-	document = [ReaderDocument unarchiveFromFileName:filePath password:phrase];
+	//document = [ReaderDocument unarchiveFromFileName:filePath password:phrase];
 
-	if (document == nil) // Unarchive failed so we create a new ReaderDocument object
-	{
-		document = [[ReaderDocument alloc] initWithFilePath:filePath password:phrase];
-	}
-
+	//if (document == nil) // Unarchive failed so we create a new ReaderDocument object
+		document = [[ReaderDocument alloc] initWithFilePath:filePath password:phrase andObjectId: aObjectId];
+    
 	return document;
 }
 
@@ -195,7 +194,7 @@
 
 #pragma mark ReaderDocument instance methods
 
-- (id)initWithFilePath:(NSString *)fullFilePath password:(NSString *)phrase
+- (id)initWithFilePath:(NSString *)fullFilePath password:(NSString *)phrase andObjectId:(NSString *) aObjectId
 {
 	id object = nil; // ReaderDocument object
 
@@ -204,6 +203,8 @@
 		if ((self = [super init])) // Initialize superclass object first
 		{
 			_guid = [ReaderDocument GUID]; // Create a document GUID
+            
+            _objectId = aObjectId;
 
 			_password = [phrase copy]; // Keep copy of any document password
 
@@ -311,8 +312,12 @@
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
 	[encoder encodeObject:_guid forKey:@"FileGUID"];
+    
+    [encoder encodeObject:_objectId forKey:@"ObjectID"];
 
 	[encoder encodeObject:_fileName forKey:@"FileName"];
+    
+    [encoder encodeObject:_fullFilePath forKey:@"FullFilePath"];
 
 	[encoder encodeObject:_fileDate forKey:@"FileDate"];
 
@@ -333,7 +338,11 @@
 	{
 		_guid = [decoder decodeObjectForKey:@"FileGUID"];
 
+        _objectId = [decoder decodeObjectForKey:@"ObjectID"];
+        
 		_fileName = [decoder decodeObjectForKey:@"FileName"];
+        
+        _fullFilePath = [decoder decodeObjectForKey:@"FullFilePath"];
 
 		_fileDate = [decoder decodeObjectForKey:@"FileDate"];
 
