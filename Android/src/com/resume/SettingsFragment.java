@@ -40,15 +40,6 @@ public class SettingsFragment extends Fragment{
 		return rootView;
 	}
 	
-	public void uploadResume(View v) {
-		
-	}
-	
-	public void selectResume(View v) {
-		Intent toResumeSelect = new Intent(getActivity(), SelectResumeActivity.class);
-		startActivityForResult(toResumeSelect, 1);
-	}
-	
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == Activity.RESULT_OK) {
             String sCurrentResumeName = data.getStringExtra("com.resume.SELECTEDRESUME");

@@ -9,5 +9,6 @@
     <string name="drawer_close">Drawer Closed</string>
     <string name="title_activity_resume_application">ResumeApplication</string>
     <string name="title_activity_select_resume">SelectResumeActivity</string>
+    <string name="title_activity_display_qr">DisplayQRActivity</string>
 
 </resources>

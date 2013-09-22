@@ -53,6 +53,10 @@
             android:name="com.resume.SelectResumeActivity"
             android:label="@string/title_activity_select_resume" >
         </activity>
+        <activity
+            android:name="com.resume.DisplayQRActivity"
+            android:label="@string/title_activity_display_qr" >
+        </activity>
     </application>
 
 </manifest>
