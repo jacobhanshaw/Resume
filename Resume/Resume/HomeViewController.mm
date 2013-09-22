@@ -164,14 +164,36 @@ using namespace std; //math.h undef's "isinf", which is used in mapkit...
 - (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    if([result isEqualToString:@"TEST_BUMP"])
+    
+    NSLog(@"Object Id: %@", result);
+    
+    NSError *error;
+    PFObject *object = [PFQuery getObjectOfClass:@"Resume" objectId:result error:&error];
+    NSLog(@"%@ %@", error, [error localizedDescription]);
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Resume"];
+  //  __weak id weakSelfForBlock = self;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            for(PFObject *item in objects)
+            {
+                NSLog(@"%@ %@ %d", result, item.objectId, [result isEqualToString:item.objectId]);
+            }
+            
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    /*
+    if(object)
     {
-  
-    }
-    else
-    {
-        
-    }
+        PFObject *resumeShare = [PFObject objectWithClassName:@"Resume"];
+        [resumeShare setObject:[object objectForKey:@"applicantResumeFile"] forKey:@"applicantResumeFile"];
+        [resumeShare setObject:[object objectForKey:@"title"] forKey:@"title"];
+        [resumeShare setObject:[PFUser currentUser] forKey:@"user"];
+        [resumeShare saveInBackground];
+    } */
 }
 
 - (void) zxingControllerDidCancel:(ZXingWidgetController*)controller
@@ -453,7 +475,9 @@ using namespace std; //math.h undef's "isinf", which is used in mapkit...
         PFObject *object = [PFQuery getObjectOfClass:@"Resume" objectId:documentToDelete.objectId error:&error];
         __weak id weakSelfForBlock = self;
         [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-            [weakSelfForBlock refresh:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelfForBlock refresh:nil];
+            });
         }];
     }
 }
