@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8911E45217ED74CE0052D7E1"
-               BuildableName = "Resume.app"
-               BlueprintName = "Resume"
-               ReferencedContainer = "container:Resume.xcodeproj">
+               BuildableName = "ShareCV.app"
+               BlueprintName = "ShareCV"
+               ReferencedContainer = "container:ShareCV.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8911E47217ED74CE0052D7E1"
-               BuildableName = "ResumeTests.xctest"
-               BlueprintName = "ResumeTests"
-               ReferencedContainer = "container:Resume.xcodeproj">
+               BuildableName = "ShareCVTests.xctest"
+               BlueprintName = "ShareCVTests"
+               ReferencedContainer = "container:ShareCV.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8911E45217ED74CE0052D7E1"
-            BuildableName = "Resume.app"
-            BlueprintName = "Resume"
-            ReferencedContainer = "container:Resume.xcodeproj">
+            BuildableName = "ShareCV.app"
+            BlueprintName = "ShareCV"
+            ReferencedContainer = "container:ShareCV.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8911E45217ED74CE0052D7E1"
-            BuildableName = "Resume.app"
-            BlueprintName = "Resume"
-            ReferencedContainer = "container:Resume.xcodeproj">
+            BuildableName = "ShareCV.app"
+            BlueprintName = "ShareCV"
+            ReferencedContainer = "container:ShareCV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8911E45217ED74CE0052D7E1"
-            BuildableName = "Resume.app"
-            BlueprintName = "Resume"
-            ReferencedContainer = "container:Resume.xcodeproj">
+            BuildableName = "ShareCV.app"
+            BlueprintName = "ShareCV"
+            ReferencedContainer = "container:ShareCV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

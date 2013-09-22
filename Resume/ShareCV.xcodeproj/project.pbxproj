@@ -122,22 +122,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8911E45317ED74CE0052D7E1 /* Resume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resume.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8911E45317ED74CE0052D7E1 /* ShareCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8911E45617ED74CE0052D7E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8911E45817ED74CE0052D7E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8911E45A17ED74CE0052D7E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8911E45C17ED74CE0052D7E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8911E46017ED74CE0052D7E1 /* Resume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Resume-Info.plist"; sourceTree = "<group>"; };
+		8911E46017ED74CE0052D7E1 /* ShareCV-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShareCV-Info.plist"; sourceTree = "<group>"; };
 		8911E46217ED74CE0052D7E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8911E46417ED74CE0052D7E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8911E46617ED74CE0052D7E1 /* Resume-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Resume-Prefix.pch"; sourceTree = "<group>"; };
+		8911E46617ED74CE0052D7E1 /* ShareCV-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareCV-Prefix.pch"; sourceTree = "<group>"; };
 		8911E46717ED74CE0052D7E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8911E46817ED74CE0052D7E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8911E46B17ED74CE0052D7E1 /* Resume.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Resume.xcdatamodel; sourceTree = "<group>"; };
 		8911E46D17ED74CE0052D7E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8911E47317ED74CE0052D7E1 /* ResumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8911E47317ED74CE0052D7E1 /* ShareCVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareCVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8911E47417ED74CE0052D7E1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8911E47D17ED74CE0052D7E1 /* ResumeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ResumeTests-Info.plist"; sourceTree = "<group>"; };
+		8911E47D17ED74CE0052D7E1 /* ShareCVTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShareCVTests-Info.plist"; sourceTree = "<group>"; };
 		8911E47F17ED74CE0052D7E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8911E48117ED74CE0052D7E1 /* ResumeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResumeTests.m; sourceTree = "<group>"; };
 		8911E48B17ED778D0052D7E1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -318,8 +318,8 @@
 		8911E45417ED74CE0052D7E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8911E45317ED74CE0052D7E1 /* Resume.app */,
-				8911E47317ED74CE0052D7E1 /* ResumeTests.xctest */,
+				8911E45317ED74CE0052D7E1 /* ShareCV.app */,
+				8911E47317ED74CE0052D7E1 /* ShareCVTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -381,10 +381,10 @@
 				8911E51F17ED957D0052D7E1 /* Images */,
 				8911E57A17EE32580052D7E1 /* AppContent.plist */,
 				8911E55717EE1C8A0052D7E1 /* AppKeys.plist */,
-				8911E46017ED74CE0052D7E1 /* Resume-Info.plist */,
+				8911E46017ED74CE0052D7E1 /* ShareCV-Info.plist */,
 				8911E46117ED74CE0052D7E1 /* InfoPlist.strings */,
 				8911E46417ED74CE0052D7E1 /* main.m */,
-				8911E46617ED74CE0052D7E1 /* Resume-Prefix.pch */,
+				8911E46617ED74CE0052D7E1 /* ShareCV-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 		8911E47C17ED74CE0052D7E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8911E47D17ED74CE0052D7E1 /* ResumeTests-Info.plist */,
+				8911E47D17ED74CE0052D7E1 /* ShareCVTests-Info.plist */,
 				8911E47E17ED74CE0052D7E1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -568,9 +568,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8911E45217ED74CE0052D7E1 /* Resume */ = {
+		8911E45217ED74CE0052D7E1 /* ShareCV */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8911E48517ED74CE0052D7E1 /* Build configuration list for PBXNativeTarget "Resume" */;
+			buildConfigurationList = 8911E48517ED74CE0052D7E1 /* Build configuration list for PBXNativeTarget "ShareCV" */;
 			buildPhases = (
 				8911E44F17ED74CE0052D7E1 /* Sources */,
 				8911E45017ED74CE0052D7E1 /* Frameworks */,
@@ -580,14 +580,14 @@
 			);
 			dependencies = (
 			);
-			name = Resume;
+			name = ShareCV;
 			productName = Resume;
-			productReference = 8911E45317ED74CE0052D7E1 /* Resume.app */;
+			productReference = 8911E45317ED74CE0052D7E1 /* ShareCV.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8911E47217ED74CE0052D7E1 /* ResumeTests */ = {
+		8911E47217ED74CE0052D7E1 /* ShareCVTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8911E48817ED74CE0052D7E1 /* Build configuration list for PBXNativeTarget "ResumeTests" */;
+			buildConfigurationList = 8911E48817ED74CE0052D7E1 /* Build configuration list for PBXNativeTarget "ShareCVTests" */;
 			buildPhases = (
 				8911E46F17ED74CE0052D7E1 /* Sources */,
 				8911E47017ED74CE0052D7E1 /* Frameworks */,
@@ -598,9 +598,9 @@
 			dependencies = (
 				8911E47A17ED74CE0052D7E1 /* PBXTargetDependency */,
 			);
-			name = ResumeTests;
+			name = ShareCVTests;
 			productName = ResumeTests;
-			productReference = 8911E47317ED74CE0052D7E1 /* ResumeTests.xctest */;
+			productReference = 8911E47317ED74CE0052D7E1 /* ShareCVTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -620,7 +620,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8911E44E17ED74CE0052D7E1 /* Build configuration list for PBXProject "Resume" */;
+			buildConfigurationList = 8911E44E17ED74CE0052D7E1 /* Build configuration list for PBXProject "ShareCV" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -632,8 +632,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8911E45217ED74CE0052D7E1 /* Resume */,
-				8911E47217ED74CE0052D7E1 /* ResumeTests */,
+				8911E45217ED74CE0052D7E1 /* ShareCV */,
+				8911E47217ED74CE0052D7E1 /* ShareCVTests */,
 			);
 		};
 /* End PBXProject section */
@@ -756,7 +756,7 @@
 /* Begin PBXTargetDependency section */
 		8911E47A17ED74CE0052D7E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8911E45217ED74CE0052D7E1 /* Resume */;
+			target = 8911E45217ED74CE0052D7E1 /* ShareCV */;
 			targetProxy = 8911E47917ED74CE0052D7E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -859,13 +859,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/JacobHanshaw/Desktop/Personal\\ Projects/Resume/Resume",
+					/Users/JacobHanshaw/Desktop/PersonalProjects/Resume/Resume,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Resume/Resume-Prefix.pch";
-				INFOPLIST_FILE = "Resume/Resume-Info.plist";
+				GCC_PREFIX_HEADER = "Resume/ShareCV-Prefix.pch";
+				INFOPLIST_FILE = "Resume/ShareCV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShareCV;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -878,13 +878,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/JacobHanshaw/Desktop/Personal\\ Projects/Resume/Resume",
+					/Users/JacobHanshaw/Desktop/PersonalProjects/Resume/Resume,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Resume/Resume-Prefix.pch";
-				INFOPLIST_FILE = "Resume/Resume-Info.plist";
+				GCC_PREFIX_HEADER = "Resume/ShareCV-Prefix.pch";
+				INFOPLIST_FILE = "Resume/ShareCV-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ShareCV;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -904,8 +904,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ResumeTests/ResumeTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ResumeTests/ShareCVTests-Info.plist";
+				PRODUCT_NAME = ShareCVTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -922,8 +922,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resume/Resume-Prefix.pch";
-				INFOPLIST_FILE = "ResumeTests/ResumeTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ResumeTests/ShareCVTests-Info.plist";
+				PRODUCT_NAME = ShareCVTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -932,7 +932,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8911E44E17ED74CE0052D7E1 /* Build configuration list for PBXProject "Resume" */ = {
+		8911E44E17ED74CE0052D7E1 /* Build configuration list for PBXProject "ShareCV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8911E48317ED74CE0052D7E1 /* Debug */,
@@ -941,7 +941,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8911E48517ED74CE0052D7E1 /* Build configuration list for PBXNativeTarget "Resume" */ = {
+		8911E48517ED74CE0052D7E1 /* Build configuration list for PBXNativeTarget "ShareCV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8911E48617ED74CE0052D7E1 /* Debug */,
@@ -950,7 +950,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8911E48817ED74CE0052D7E1 /* Build configuration list for PBXNativeTarget "ResumeTests" */ = {
+		8911E48817ED74CE0052D7E1 /* Build configuration list for PBXNativeTarget "ShareCVTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8911E48917ED74CE0052D7E1 /* Debug */,
